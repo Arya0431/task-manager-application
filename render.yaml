@@ -1,7 +1,7 @@
 services:
   - type: web
     name: task-manager-backend
-    env: node
+    runtime: node
     rootDir: backend
     buildCommand: npm install
     startCommand: npm start
@@ -31,8 +31,9 @@ services:
       - key: DB_SYNC_ALTER
         value: false
 
-  - type: static
+  - type: web
     name: task-manager-frontend
+    runtime: static
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: dist
